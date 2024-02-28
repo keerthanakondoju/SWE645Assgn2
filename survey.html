@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Survey Form</title>
+<style>
+  .background-image {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Use viewport height to cover the full screen */
+    background-color: #f8f9fa; /* Fallback color */
+  }
+
+  .background-image::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('C:/Users/keert/OneDrive/Documents/SWE645/swe645assgn1/background.jpg'); /* Adjust your image URL */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Adjust the opacity for transparency */
+  }
+
+  .content {
+    position: relative;
+    z-index: 1; /* Ensure the content is above the background */
+    padding: 20px;
+    color: darkgreen; /* Change text color for visibility */
+    text-align: center;
+    margin: auto;
+    width: 50%; /* Adjust form width */
+    background: white; /* Background for form content */
+    opacity: 0.9; /* Slight transparency for form background */
+    border-radius: 10px; /* Rounded corners for form */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soft shadow for depth */
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between form elements */
+  }
+
+  input[type=text], input[type=email], input[type=date], input[type=tel], select, textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside inputs */
+    margin: 6px 0; /* Margin top and bottom */
+    display: inline-block;
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded borders for inputs */
+    box-sizing: border-box; /* Box sizing for better width control */
+  }
+
+  input[type=submit], input[type=button] {
+    width: auto;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover, input[type=button]:hover {
+    background-color: #45a049;
+  }
+
+  label {
+    margin-left: 2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="background-image">
+  <div class="content">
+    <h1>Welcome! Please fill out this Survey Form.</h1>
+    <form>
+      <!-- Text inputs for user information -->
+      <input type="text" name="firstname" placeholder="First Name" required>
+      <input type="text" name="lastname" placeholder="Last Name" required>
+      <input type="text" name="address" placeholder="Street Address" required>
+      <input type="text" name="city" placeholder="City" required>
+      <input type="text" name="state" placeholder="State" required>
+      <input type="text" name="zip" placeholder="Zip" required>
+      <input type="tel" name="telephone" placeholder="Telephone Number" required>
+      <input type="email" name="email" placeholder="E-mail" required>
+      <input type="date" name="dateofsurvey" placeholder="Date of Survey" required>
+
+      <!-- Checkboxes for preferences -->
+      <fieldset>
+        <legend>What did you like most about the campus?</legend>
+        <label><input type="checkbox" name="likes" value="students"> Students</label>
+        <label><input type="checkbox" name="likes" value="location"> Location</label>
+        <label><input type="checkbox" name="likes" value="campus"> Campus</label>
+        <label><input type="checkbox" name="likes" value="atmosphere"> Atmosphere</label>
+        <label><input type="checkbox" name="likes" value="dormrooms"> Dorm Rooms</label>
+        <label><input type="checkbox" name="likes" value="sports"> Sports</label>
+      </fieldset>
+
+      <!-- Radio buttons for discovery method -->
+      <fieldset>
+        <legend>How did you become interested in the university?</legend>
+        <label><input type="radio" name="interest" value="friends"> Friends</label>
+        <label><input type="radio" name="interest" value="television"> Television</label>
+        <label><input type="radio" name="interest" value="internet"> Internet</label>
+        <label><input type="radio" name="interest" value="other"> Other</label>
+      </fieldset>
+
+      <!-- Dropdown for likelihood of recommendation -->
+      <label for="likelihood">Likelihood of recommending this school:</label>
+      <select name="likelihood" id="likelihood">
+        <option value="very likely">Very Likely</option>
+        <option value="likely">Likely</option>
+        <option value="unlikely">Unlikely</option>
+      </select>
+
+      <!-- Raffle entry -->
+      <input type="text" name="raffle" placeholder="Enter ten comma-separated numbers (1-100)" required>
+
+      <!-- Text area for additional comments -->
+      <textarea name="comments" rows="4" placeholder="Additional comments"></textarea>
+
+      <!-- Submit and Cancel buttons -->
+      <input type="submit" value="Submit">
+      <input type="button" value="Cancel" onclick="window.location.reload();">
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
